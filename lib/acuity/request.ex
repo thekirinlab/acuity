@@ -1,6 +1,6 @@
 defmodule Acuity.Request do
   @moduledoc """
-  Utilities to send request to Crowdin API v2
+  Utilities to send request to Acuity API v1.1
   """
 
   alias HTTPoison.{Error, Response}

@@ -11,7 +11,7 @@ by adding `acuity` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:acuity, "~> 0.1.1"}
+    {:acuity, "~> 0.1.3"}
   ]
 end
 ```
@@ -52,7 +52,7 @@ end
       {:ok,
         [
           %{
-            "description" => "Expertise: Individual, Career, Relationship and Family Concerns\nLanguage: English, Malay, Tamil\n\nCountry: Malaysia\nLocation (F2F Services): Klang",
+            "description" => "Expertise: Individual, Career, Relationship and Family Concerns",
             "email" => "test@example.com, therapy@example.com",
             "id" => 1481526,
             "image" => "//cdn-s.acuityscheduling.com/test.jpg?8142016179",

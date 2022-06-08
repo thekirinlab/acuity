@@ -1,6 +1,6 @@
 defmodule Acuity.API do
   @moduledoc """
-  Utilities for interacting with the Crowdin API v2.
+  Utilities for interacting with the Acuity API v1.1.
   """
 
   alias Acuity.{Config, Request}

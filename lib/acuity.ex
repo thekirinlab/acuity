@@ -46,10 +46,10 @@ defmodule Acuity do
             "type" => "Returning Clients (PHP1200)",
             "duration" => "60",
             "datetime" => "2022-06-28T14:00:00+0800",
-            "formsText" => "Name: John Doe\nPhone: 1234432432\nEmail: test@example.com\n\nLocation\n============\nURL: https://app.acuityscheduling.com/schedule.php?owner=:owner_id&action=meet&apptID=:apptid&meetID=:meet_id\n\n\n\n============\nAre you still using our ThoughtFullChat App? : no\n\nIf yes, what is your email address used to register for ThoughtFullChat App?: \n\nIf yes, what is the name of your ThoughtFull Professional?: Phoebe Bernardo\n\n\n\nTHOUGHTFULLCHAT TELEPSYCHOLOGY INFORMED CONSENT FORM\n============\nI hereby acknowledge that I have read, understand and consent to the terms of telepsychology services set forth above.: yes\n\n\n\nCancellation/ Rescheduling Policy\n============\nI have read and agreed to the cancellation policy.: yes\n\n",
+            "formsText" => "Name: John Doe",
             "certificate" => nil,
             "priceSold" => "0.00",
-            "location" => "URL: https://app.acuityscheduling.com/schedule.php?owner=21359557&action=meet&apptID=838318342&meetID=9b6d33e6ee0706c83b04d9c68ac48475 \n",
+            "location" => "URL: https://app.acuityscheduling.com/schedule.php?owner=21359557&action=meet&apptID=838318342&meetID=9b6d33e6ee0706c83b04d9c68ac48475",
             "amountPaid" => "0.00",
             "calendarID" => 6224198,
             "phone" => "+16265871714",
@@ -75,7 +75,6 @@ defmodule Acuity do
           }
         ]
       }
-    }
   """
 
   defdelegate get_appointments(params), to: API
@@ -123,7 +122,7 @@ defmodule Acuity do
       {:ok,
         [
           %{
-            "description" => "Expertise: Individual, Career, Relationship and Family Concerns\nLanguage: English, Malay, Tamil\n\nCountry: Malaysia\nLocation (F2F Services): Klang",
+            "description" => "Expertise: Individual, Career, Relationship and Family Concernsnguage: English, Malay, Tamiluntry: Malaysiacation (F2F Services): Klang",
             "email" => "test@example.com, therapy@example.com",
             "id" => 1481526,
             "image" => "//cdn-s.acuityscheduling.com/test.jpg?8142016179",
