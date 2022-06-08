@@ -5,7 +5,7 @@ defmodule Acuity.API do
 
   alias Acuity.{Config, Request}
 
-  @api_path "https://acuityscheduling.com/api/v1/"
+  @api_path "https://acuityscheduling.com/api/v1"
 
   @type method :: :get | :post | :put | :delete | :patch
   @type headers :: %{String.t() => String.t()} | %{}

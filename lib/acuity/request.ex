@@ -6,6 +6,8 @@ defmodule Acuity.Request do
   alias HTTPoison.{Error, Response}
   require Logger
 
+  alias Acuity.Config
+
   @default_opts [
     timeout: 15_000,
     recv_timeout: 15_000
