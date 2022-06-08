@@ -14,11 +14,17 @@ defmodule Acuity.API do
   @request_module if Mix.env() == :test, do: Acuity.RequestMock, else: Request
 
   def get_appointments(params \\ %{}) do
-    encoded_query =
-      URI.encode_query(params)
-      |> IO.inspect(label: "encode_query")
+    encoded_query = URI.encode_query(params)
 
-    request("appointments?#{encoded_query}", :get, "")
+    request("appointments?#{encoded_query}", :get)
+  end
+
+  def get_appointment_types do
+    request("appointment-types", :get)
+  end
+
+  def get_calendars do
+    request("calendars", :get)
   end
 
   defp api_path do
