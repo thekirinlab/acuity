@@ -23,7 +23,7 @@ defmodule Acuity.Config do
       config :acuity, user_id: {MyApp.Config, :acuity_user_id, []}
   """
   def user_id do
-    resolve(:user_id)
+    resolve(:user_id, System.get_env("ACUITY_USER_ID"))
   end
 
   @doc """
@@ -37,7 +37,7 @@ defmodule Acuity.Config do
       config :acuity, api_key: {MyApp.Config, :acuity_api_key, []}
   """
   def api_key do
-    resolve(:api_key)
+    resolve(:api_key, System.get_env("ACUITY_API_KEY"))
   end
 
   @doc """

@@ -13,8 +13,12 @@ defmodule Acuity.API do
 
   @request_module if Mix.env() == :test, do: Acuity.RequestMock, else: Request
 
-  def get_appointment(params \\ %{}) do
-    request("appointments", :get, params)
+  def get_appointments(params \\ %{}) do
+    encoded_query =
+      URI.encode_query(params)
+      |> IO.inspect(label: "encode_query")
+
+    request("appointments?#{encoded_query}", :get, "")
   end
 
   defp api_path do
@@ -42,7 +46,11 @@ defmodule Acuity.API do
   def request(path, method, body \\ "", headers \\ %{}, opts \\ []) do
     req_url = build_path(path)
 
-    opts = [hackney: [basic_auth: {Config.user_id(), Config.api_key()}]]
+    # hackney: [basic_auth: {Config.user_id(), Config.api_key()}],
+
+    opts = [
+      hackney: [basic_auth: {Config.user_id(), Config.api_key()}]
+    ]
 
     req_headers =
       headers
