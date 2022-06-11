@@ -27,6 +27,10 @@ defmodule Acuity.API do
     request("calendars", :get)
   end
 
+  def get_forms do
+    request("forms", :get)
+  end
+
   defp api_path do
     @api_path
   end

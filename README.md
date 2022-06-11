@@ -47,7 +47,7 @@ end
 ```
 
 ## Get all calendars
-
+```
       iex> Acuity.get_calendars()
       {:ok,
         [
@@ -64,7 +64,7 @@ end
           },
         ]
       }
-  """
+```
 
 ## Get appointments example
 ```
@@ -132,4 +132,58 @@ end
       ]
     }
   }
+```
+
+## Get all forms
+```
+      iex> Acuity.get_forms()
+      {:ok,
+          [
+          %{
+            "appointmentTypeIDs" => [53733086, 21825761],
+            "description" => "This form will take you about 10-15 minutes to complete, so that we can prepare the best service for you.",
+            "fields" => [
+              %{
+                "id" => 10113708,
+                "lines" => 1,
+                "name" => "Name of Partner",
+                "options" => nil,
+                "required" => true,
+                "type" => "textbox"
+              },
+              %{
+                "id" => 10113719,
+                "name" => "Your Gender",
+                "options" => ["Male", "Female", "Prefer not to say"],
+                "required" => true,
+                "type" => "dropdown"
+              },
+              %{
+                "id" => 10113834,
+                "name" => "Address",
+                "options" => nil,
+                "required" => true,
+                "type" => "address"
+              },
+              %{
+                "id" => 10113729,
+                "name" => "Preferred Language of session",
+                "options" => ["English", "Malay", "Mandarin", "Tamil"],
+                "required" => true,
+                "type" => "checkboxlist"
+              },
+              %{
+                "id" => 10113836,
+                "name" => "Have you and your partner received prior couples counseling related to any of the above problems?",
+                "options" => nil,
+                "required" => true,
+                "type" => "yesno"
+              }
+            ],
+            "hidden" => false,
+            "id" => 0681823,
+            "name" => "Couples Counseling Registration and Intake Form (Full version)"
+          }
+        ]
+      }
 ```
