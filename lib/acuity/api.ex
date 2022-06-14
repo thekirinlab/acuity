@@ -31,6 +31,14 @@ defmodule Acuity.API do
     request("forms", :get)
   end
 
+  def get_dates(params) do
+    request("availability/dates", :get, params)
+  end
+
+  def get_times(params) do
+    request("availability/times", :get, params)
+  end
+
   defp api_path do
     @api_path
   end
@@ -53,13 +61,14 @@ defmodule Acuity.API do
 
   @spec request(String.t(), method, body, headers, list) ::
           {:ok, map} | {:error, any()}
-  def request(path, method, body \\ "", headers \\ %{}, opts \\ []) do
+  def request(path, method, params \\ [], body \\ "", headers \\ %{}, opts \\ []) do
     req_url = build_path(path)
 
     # hackney: [basic_auth: {Config.user_id(), Config.api_key()}],
 
     opts = [
-      hackney: [basic_auth: {Config.user_id(), Config.api_key()}]
+      hackney: [basic_auth: {Config.user_id(), Config.api_key()}],
+      params: params
     ]
 
     req_headers =
