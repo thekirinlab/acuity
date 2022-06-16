@@ -194,6 +194,43 @@ defmodule Acuity do
         }
   """
   defdelegate get_forms, to: API
+
+  @doc """
+  Get all avaibility dates
+
+  ## Examples
+
+      iex> Acuity.get_availability_dates([month: "2022-06", appointmentTypeID: 34144102])
+        {:ok,
+          [
+            %{"date" => "2022-06-20"},
+            %{"date" => "2022-06-22"},
+            %{"date" => "2022-06-27"}
+          ]
+        }
+  """
+
   defdelegate get_availability_dates(params), to: API
+
+   @doc """
+  Get all avaibility times
+
+  ## Examples
+
+      iex> Acuity.get_availability_times([date: "2022-06-20", appointmentTypeID: 34144102])
+        {:ok,
+          [
+            %{
+              "time" => "2022-06=20T13:00:00-0800"
+            },
+            %{
+              "time" => "2022-06=20T14:00:00-0800"
+            },
+            %{
+              "time" => "2022-06=20T15:00:00-0800"
+            }
+          ]
+        }
+  """
   defdelegate get_availability_times(params), to: API
 end
