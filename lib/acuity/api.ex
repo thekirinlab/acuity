@@ -31,11 +31,11 @@ defmodule Acuity.API do
     request("forms", :get)
   end
 
-  def get_dates(params) do
+  def get_availability_dates(params) do
     request("availability/dates", :get, params)
   end
 
-  def get_times(params) do
+  def get_availability_times(params) do
     request("availability/times", :get, params)
   end
 

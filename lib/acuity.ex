@@ -194,6 +194,6 @@ defmodule Acuity do
         }
   """
   defdelegate get_forms, to: API
-  defdelegate get_dates(params), to: API
-  defdelegate get_times(params), to: API
+  defdelegate get_availability_dates(params), to: API
+  defdelegate get_availability_times(params), to: API
 end
