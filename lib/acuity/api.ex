@@ -32,6 +32,8 @@ defmodule Acuity.API do
   end
 
   def get_availability_dates(params \\ %{}) do
+    encoded_query = URI.encode_query(params)
+
     request("availability/dates?#{encoded_query}", :get)
   end
 

@@ -200,7 +200,7 @@ defmodule Acuity do
 
   ## Examples
 
-      iex> Acuity.get_availability_dates([month: "2022-06", appointmentTypeID: 34144102])
+      iex> Acuity.get_availability_dates(%{"month" => "2022-06", "appointmentTypeID" => 34144102})
         {:ok,
           [
             %{"date" => "2022-06-20"},
@@ -217,7 +217,7 @@ defmodule Acuity do
 
   ## Examples
 
-      iex> Acuity.get_availability_times([date: "2022-06-20", appointmentTypeID: 34144102])
+      iex> Acuity.get_availability_times(%{"date" => "2022-06-20", "appointmentTypeID" => 34144102})
         {:ok,
           [
             %{
