@@ -80,11 +80,11 @@ defmodule Acuity do
   defdelegate get_appointments(params), to: API
 
   @doc """
-  Get appointments
+  Create an appointment
 
   ## Examples
 
-      iex> Acuity.get_appointments(%{
+      iex> Acuity.create_appointments(%{
         "appointmentTypeID" => 1,
         "datetime" => "2016-04-01T09:00",
         "firstName" => "Bob",
