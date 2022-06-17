@@ -80,6 +80,61 @@ defmodule Acuity do
   defdelegate get_appointments(params), to: API
 
   @doc """
+  Get appointments
+
+  ## Examples
+
+      iex> Acuity.get_appointments(%{
+        "appointmentTypeID" => 1,
+        "datetime" => "2016-04-01T09:00",
+        "firstName" => "Bob",
+        "lastName" => "McTest",
+        "email" => "bob.mctest@example.com"
+        })
+      {:ok,
+          %{
+            "id" => 31991639,
+            "firstName" => "Bob",
+            "lastName" => "McTest",
+            "phone" => "",
+            "email" => "bob.mctest@example.com",
+            "date" => "February 3, 2016",
+            "time" => "2 =>00pm",
+            "endTime" => "3 =>00pm",
+            "dateCreated" => "February 2, 2016",
+            "datetime" => "2016-02-03T14 =>00 =>00-0800",
+            "price" => "0.00",
+            "paid" => "no",
+            "amountPaid" => "0.00",
+            "type" => "Regular Visit",
+            "appointmentTypeID" => 1,
+            "classID" => nil,
+            "category" => "",
+            "duration" => "60",
+            "calendar" => "My Calendar",
+            "calendarID" => 1,
+            "location" => "",
+            "certificate" => "ABC123",
+            "confirmationPage" => "https =>//www.acuityscheduling.com/schedule.php?action=appt&owner=11145481&id[]=1220aa9f41091c50c0cc659385cfa1d0",
+            "formsText" => "...",
+            "forms" => [],
+            "notes" => "",
+            "timezone" => "America/Los_Angeles",
+            "labels" => [
+                  {
+                      "id" => 1,
+                      "name" => "Completed",
+                      "color" => "pink"
+                  }
+              ]
+            ]
+          }
+      }
+  """
+
+  defdelegate create_appointment(params), to: API
+
+  @doc """
   Get all appointment types
 
   ## Examples
@@ -212,7 +267,7 @@ defmodule Acuity do
 
   defdelegate get_availability_dates(params), to: API
 
-   @doc """
+  @doc """
   Get all avaibility times
 
   ## Examples

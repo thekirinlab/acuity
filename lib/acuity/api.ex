@@ -19,6 +19,10 @@ defmodule Acuity.API do
     request("appointments?#{encoded_query}", :get)
   end
 
+  def create_appointment(params \\ %{}) do
+    request("appointments", :post, params)
+  end
+
   def get_appointment_types do
     request("appointment-types", :get)
   end
