@@ -84,7 +84,7 @@ defmodule Acuity do
 
   ## Examples
 
-      iex> Acuity.create_appointments(%{
+     iex> Acuity.create_appointments(%{
         "appointmentTypeID" => 1,
         "datetime" => "2016-04-01T09:00",
         "firstName" => "Bob",
@@ -93,46 +93,208 @@ defmodule Acuity do
         })
       {:ok,
           %{
-            "id" => 31991639,
-            "firstName" => "Bob",
-            "lastName" => "McTest",
-            "phone" => "",
-            "email" => "bob.mctest@example.com",
-            "date" => "February 3, 2016",
-            "time" => "2 =>00pm",
-            "endTime" => "3 =>00pm",
-            "dateCreated" => "February 2, 2016",
-            "datetime" => "2016-02-03T14 =>00 =>00-0800",
-            "price" => "0.00",
-            "paid" => "no",
-            "amountPaid" => "0.00",
-            "type" => "Regular Visit",
-            "appointmentTypeID" => 1,
-            "classID" => nil,
-            "category" => "",
-            "duration" => "60",
-            "calendar" => "My Calendar",
-            "calendarID" => 1,
-            "location" => "",
-            "certificate" => "ABC123",
-            "confirmationPage" => "https =>//www.acuityscheduling.com/schedule.php?action=appt&owner=11145481&id[]=1220aa9f41091c50c0cc659385cfa1d0",
-            "formsText" => "...",
-            "forms" => [],
-            "notes" => "",
-            "timezone" => "America/Los_Angeles",
-            "labels" => [
-                  {
-                      "id" => 1,
-                      "name" => "Completed",
-                      "color" => "pink"
-                  }
+          "id" => 54321,
+          "firstName" => "Bob",
+          "lastName" => "McTest",
+          "phone" => "",
+          "email" => "bob.mctest@example.com",
+          "date" => "June 17, 2013",
+          "time" => "10:15am",
+          "endTime" => "11:15am",
+          "dateCreated" => "July 2, 2013",
+          "datetime" => "2013-06-17T10:15:00-0700",
+          "price" => "10.00",
+          "paid" => "no",
+          "amountPaid" => "0.00",
+          "type" => "Regular Visit",
+          "appointmentTypeID" => 1,
+          "classID" => nil,
+          "duration" => "60",
+          "calendar" => "My Calendar",
+          "calendarID" => 27238,
+          "location" => "",
+          "certificate" => nil,
+          "confirmationPage" => "https://acuityscheduling.com/schedule.php?owner=11145481&id[]=1220aa9f41091c50c0cc659385cfa1d0&action=appt",
+          "formsText" => "...",
+          "notes" => "Notes",
+          "timezone" => "America/New_York",
+          "forms" => [
+            %{
+              "id" => 1,
+              "name" => "Example Intake Form",
+              "values" => [
+                %{
+                  "value" => "yes",
+                  "name" => "Is this your first visit?",
+                  "fieldID" => 1,
+                  "id" => 21502993
+                },
+                %{
+                  "value" => "Ninja",
+                  "name" => "What is your goal for this appointment?",
+                  "fieldID" => 2,
+                  "id" => 21502994
+                }
               ]
-            ]
-          }
-      }
+            }
+          ],
+          "labels" => [
+            %{
+              "id" => 1,
+              "name" => "Completed",
+              "color" => "pink"
+            }
+          ]
+        }
   """
 
   defdelegate create_appointment(params), to: API
+
+  @doc """
+  Update an appointment details from a white-list of updatable attributes.
+
+  ## Examples
+
+      iex> Acuity.update_appointment(%{
+            "firstName" => "string",
+            "lastName" => "string",
+            "email" => "string",
+            "phone" => "string",
+            "certificate" => "string",
+            "notes" => "string",
+            "smsOptIn" => false
+        })
+      {:ok,
+                %{
+          "id" =>  54321,
+          "firstName" =>  "Bob",
+          "lastName" =>  "McTest",
+          "phone" =>  "",
+          "email" =>  "bob.mctest@example.com",
+          "date" =>  "June 17, 2013",
+          "time" => "10:15am",
+          "endTime" => "11:15am",
+          "dateCreated" => "July 2, 2013",
+          "datetime" => "2013-06-17T10:15:00-0700",
+          "price" => "10.00",
+          "paid" => "no",
+          "amountPaid" => "0.00",
+          "type" => "Regular Visit",
+          "appointmentTypeID" => 1,
+          "classID" => nil,
+          "duration" => "60",
+          "calendar" => "My Calendar",
+          "calendarID" => 27238,
+          "canClientCancel" => false,
+          "canClientReschedule" => false,
+          "location" => "",
+          "certificate" => nil,
+          "confirmationPage" => "https://acuityscheduling.com/schedule.php?owner=11145481&id[]=1220aa9f41091c50c0cc659385cfa1d0&action=appt",
+          "formsText" => "...",
+          "notes" => "Notes",
+          "timezone" => "America/New_York",
+          "scheduledBy" => nil,
+          "forms" => [
+            %{
+              "id" => 1,
+              "name" => "Example Intake Form",
+              "values" => [
+                %{
+                  "value" => "yes",
+                  "name" => "Is this your first visit?",
+                  "fieldID" => 1,
+                  "id" => 21502993
+                },
+                %{
+                  "value" => "Ninja",
+                  "name" => "What is your goal for this appointment?",
+                  "fieldID" => 2,
+                  "id" => 21502994
+                }
+              ]
+            }
+          ],
+          "labels" => [
+                %{
+                    "id" => 3,
+                    "name" => "Completed",
+                    "color" => "pink"
+                }
+            ],
+        }
+      }
+  """
+
+  defdelegate update_appointment(params), to: API
+
+  @doc """
+  Get a single appointment by ID.
+
+  ## Examples
+
+      iex> Acuity.get_appointment(54321)
+      {:ok,
+                %{
+          "id" =>  54321,
+          "firstName" =>  "Bob",
+          "lastName" =>  "McTest",
+          "phone" =>  "",
+          "email" =>  "bob.mctest@example.com",
+          "date" =>  "June 17, 2013",
+          "time" =>  "10:15am",
+          "endTime" =>  "11:15am",
+          "dateCreated" =>  "July 2, 2013",
+          "datetime" =>  "2013-06-17T10:15:00-0700",
+          "price" =>  "10.00",
+          "paid" =>  "no",
+          "amountPaid" =>  "0.00",
+          "type" =>  "Regular Visit",
+          "appointmentTypeID" =>  1,
+          "classID" =>  nil,
+          "duration" =>  "60",
+          "calendar" =>  "My Calendar",
+          "calendarID" =>  27238,
+          "canClientCancel" =>  false,
+          "canClientReschedule" =>  false,
+          "location" =>  "",
+          "certificate" =>  nil,
+          "confirmationPage" =>  "https://acuityscheduling.com/schedule.php?owner=11145481&id[]=1220aa9f41091c50c0cc659385cfa1d0&action=appt",
+          "formsText" =>  "...",
+          "notes" =>  "Notes",
+          "timezone" =>  "America/New_York",
+          "scheduledBy" =>  nil,
+          "forms" =>  [
+            %{
+              "id" =>  1,
+              "name" =>  "Example Intake Form",
+              "values" =>  [
+                %{
+                  "value" =>  "yes",
+                  "name" =>  "Is this your first visit?",
+                  "fieldID" =>  1,
+                  "id" =>  21502993
+                },
+                %{
+                  "value" =>  "Ninja",
+                  "name" =>  "What is your goal for this appointment?",
+                  "fieldID" =>  2,
+                  "id" =>  21502994
+                }
+              ]
+            }
+          ],
+          "labels" =>  [
+                %{
+                    "id" =>  3,
+                    "name" =>  "Completed",
+                    "color" =>  "pink"
+                }
+            ],
+        }
+      }
+  """
+
+  defdelegate get_appointment(id), to: API
 
   @doc """
   Get all appointment types

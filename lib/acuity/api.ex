@@ -23,6 +23,15 @@ defmodule Acuity.API do
     request("appointments", :post, params)
   end
 
+  def update_appointment(params \\ %{}) do
+    id = params["id"]
+    request("appointments/#{id}", :put, params)
+  end
+
+  def get_appointment(id) do
+    request("appointments/#{id}", :get)
+  end
+
   def get_appointment_types do
     request("appointment-types", :get)
   end
