@@ -227,7 +227,7 @@ defmodule Acuity do
       }
   """
 
-  defdelegate update_appointment(params), to: API
+  defdelegate update_appointment(id, params), to: API
 
   @doc """
   Get a single appointment by ID.
