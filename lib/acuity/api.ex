@@ -23,8 +23,7 @@ defmodule Acuity.API do
     request("appointments", :post, params)
   end
 
-  def update_appointment(params \\ %{}) do
-    id = params["id"]
+  def update_appointment(id, params \\ %{}) do
     request("appointments/#{id}", :put, params)
   end
 

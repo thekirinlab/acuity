@@ -155,7 +155,9 @@ defmodule Acuity do
 
   ## Examples
 
-      iex> Acuity.update_appointment(%{
+      iex> Acuity.update_appointment(
+        54321,
+        %{
             "firstName" => "string",
             "lastName" => "string",
             "email" => "string",
