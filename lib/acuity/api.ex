@@ -31,6 +31,10 @@ defmodule Acuity.API do
     request("appointments/#{id}", :get)
   end
 
+  def reschedule_appointment(id, params) do
+    request("appointments/#{id}/reschedule", :put, params)
+  end
+
   def get_appointment_types do
     request("appointment-types", :get)
   end

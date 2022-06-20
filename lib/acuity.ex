@@ -299,6 +299,66 @@ defmodule Acuity do
   defdelegate get_appointment(id), to: API
 
   @doc """
+  Reschedule an appointment.
+
+  ## Examples
+
+      iex> Acuity.reschedule_appointment(1, %{
+         "datetime" => "2016-04-01T09:00",
+         "calendarID => 1
+      })
+      {:ok,
+        {
+          "id" => 1,
+          "firstName" => "Bob",
+          "lastName" => "McTest",
+          "phone" => "",
+          "email" => "bob.mctest@example.com",
+          "date" => "June 17, 2013",
+          "time" => "10:15am",
+          "endTime" => "11:15am",
+          "dateCreated" => "July 2, 2013",
+          "datetime" => "2016-02-03T14:00:00-0800",
+          "price" => "10.00",
+          "paid" => "no",
+          "amountPaid" => "0.00",
+          "type" => "Regular Visit",
+          "appointmentTypeID" => 1,
+          "classID" => nil,
+          "duration" => "60",
+          "calendar" => "My Calendar",
+          "calendarID" => 1,
+          "location" => "",
+          "certificate" => nil,
+          "confirmationPage" => "https://acuityscheduling.com/schedule.php?owner=11145481&id[]=1220aa9f41091c50c0cc659385cfa1d0&action=appt",
+          "formsText" => "...",
+          "notes" => "Notes",
+          "timezone" => "America/New_York",
+          "forms" => [
+            {
+              "id" => 1,
+              "name" => "Example Intake Form",
+              "values" => [
+                {
+                  "value" => "yes",
+                  "name" => "Is this your first visit?",
+                  "fieldID" => 1,
+                  "id" => 21502993
+                },
+                {
+                  "value" => "Ninja",
+                  "name" => "What is your goal for this appointment?",
+                  "fieldID" => 2,
+                  "id" => 21502994
+                }
+              ]
+            }
+          ]
+        }
+  """
+  defdelegate reschedule_appointment(id, params), to: API
+
+  @doc """
   Get all appointment types
 
   ## Examples
