@@ -27,6 +27,10 @@ defmodule Acuity.API do
     request("appointments/#{id}", :put, params)
   end
 
+  def cancel_appointment(id, params \\ %{}) do
+    request("appointments/#{id}/cancel", :put, params)
+  end
+
   def get_appointment(id) do
     request("appointments/#{id}", :get)
   end
